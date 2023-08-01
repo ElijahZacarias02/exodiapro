@@ -141,34 +141,7 @@
     <!-- 
     - custom js link
   -->
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.0.min.js" ></script>
-
-    <script src="./assets/js/script.js" defer></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/dist/js/lightgallery.min.js"
-      defer
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/lg-thumbnail/1.1.0/lg-thumbnail.min.js"
-      defer
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/lg-fullscreen/1.1.0/lg-fullscreen.min.js"
-      defer
-    ></script>
-
-    <!-- 
-    - ionicon link
-  -->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
+ 
   </body>
 </html>
 
