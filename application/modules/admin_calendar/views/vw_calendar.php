@@ -34,8 +34,8 @@
 												  			<?php echo $row['name'];?>
 														</h5>
 
-                            <button type="button" class="text-bold btn btn-dark"  
-                            onclick="goView(<?php echo $row['id']?>)"style="font-family: 'Nunito Sans', sans-serif;">View
+                            <button type="button" class="text-bold btn btn-info"  
+                            onclick="goView(<?php echo $row['id']?>)">View
                             </button>
 
 													</div>
@@ -249,18 +249,16 @@
 function goView(id){
 	
        $.ajax({
-        url : "<?php echo site_url('admin_calendar/view_ticket')?>/" + id,
+        url : "<?php echo site_url('admin_calendar/view_event')?>/" + id,
         type: "GET",
         data: $(this).serialize(),
         dataType: "JSON",
         success: function(data)
         {
-        $('.title').html(data.title);
+        $('.title').html(data.name);
 
         $('.start_event').val(data.start_event);
         $('.end_event').val(data.end_event);
-        $('.status').html(data.status);
-        $('.participants').html(data.participants);
         $('.description').html(data.description);
 	
     

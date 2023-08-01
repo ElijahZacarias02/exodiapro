@@ -22,6 +22,13 @@ class Admin_calendar extends CI_Controller {
 		$this->load->view('templates/footer');
 		
 	}
+    public function view_event($id)
+	{
+	    $data = $this->repository->view_ticket($id);
+	    
+	    echo json_encode($data);
+	}
+
     function load()
     {
         $event_data = $this->repository->fetch_all_event();
