@@ -1,4 +1,6 @@
-
+<div class="row mt-5">
+    <div class="col-md-12">
+        <form id="submit_events">
 <div class="wrapper mx-12 "> a
 	<section class="content   ">
 		<div class="container-fluid ">
@@ -68,7 +70,12 @@
 		</div> 
 	</section> 
 </div>
-
+<div class="form-group">
+                <input type="text" id="eventSearch" class="form-control" placeholder="Search events">
+            </div>
+        </form>
+    </div>
+</div>
 
 <div class="modal fade" id="asdasd">
 <div class="modal-dialog">
@@ -150,9 +157,20 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
-    <script>
+        <script>
     $(document).ready(function(){
-    
+        $('#eventSearch').on('input', function () {
+            var searchTerm = $(this).val().toLowerCase();
+
+            $('.col-md-4').each(function () {
+                var eventName = $(this).find('.text-white').eq(1).text().toLowerCase();
+                if (eventName.includes(searchTerm)) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
     $('.datepicker-days').hide();
     
         var calendar = $('#calendar').fullCalendar({
