@@ -15,11 +15,17 @@ class Talents_profile extends CI_Controller {
     }  
 	public function index()
 	{
-	
+		$Id =  $this->input->get('Id');
+		
 
+
+		
+		$data['get_talents']=$this->Talents_profile_model->get_talents();
+		$data['get_talents_profile']=$this->Talents_profile_model->get_talents_profile($Id);
 	    
+
 		$this->load->view('templates/header');
-		$this->load->view('talents_profile');
+		$this->load->view('talents_profile',$data);
 
 		$this->load->view('templates/footer');
 		$this->load->view('talents_profile_footer');

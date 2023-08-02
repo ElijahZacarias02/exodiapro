@@ -12,7 +12,7 @@
 						<?php foreach($get_talents as $rows){?> 
 
 
-                            <a href="talents-yume" class="grid-item">
+                            <a href="<?php echo('talents_profile');?>?Id=<?php echo $rows->Id?>" class="grid-item">
                                 <div class="latest-game-card">
                                     <figure class="card-banner img-holder">
                                         <div class="image-container">

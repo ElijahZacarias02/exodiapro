@@ -11,9 +11,7 @@ class Talents_model extends CI_Model{
   
 
 	function get_talents(){
-      
-      
-      
+
 		$query =   $this->db->query("SELECT * FROM `talents`");
 		
 		return $query->result();

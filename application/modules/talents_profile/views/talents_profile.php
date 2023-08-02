@@ -1,64 +1,95 @@
+<section class="section live-match" id="live" aria-label="live match" style="margin-top:150px;">
+        <div class="container">
+
+            <h2 class="h2 section-title">
+                <span class="span">Profile</span>
+            </h2>
 
 
 
-<main>
-      <article>
-        <section class="section hero" id="home" aria-label="home">
-          <div class="container">
-            <div class="hero-content">
-              <p class="hero-subtitle">Exodia</p>
+			<?php foreach($get_talents as $rows){?> 
 
-              <h1 class="h1 hero-title">
-                text <span class="span">text</span> text
-              </h1>
+				<center>
+				<img src="<?php echo base_url('public/assets/images/');?><?php echo $rows->Image?>" loading="lazy" alt="Live Match Video"
+                    class="img-cover-profile">
+					</center>
+	
+                                <!-- Social Media Icons -->
+                                <div class="member-social-links">
 
-              <p class="hero-text">another text</p>
-              <div
-                class="tube-link sixteen-nine-btn"
-                vidUrl=""
-              >
-                <button class="btn skewBg">Watch Video</button>
-              </div>
-            </div>
+                                    <a href="https://www.facebook.com/YumeShouOfficial"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.instagram.com/yumeshou.official"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://www.twitter.com/YumeshouOFC"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.tiktok.com/@yumeshou.official"><i class="fa-brands fa-tiktok"></i></a>
+                                </div>
+            <p class="section-text">
+			<?php echo $rows->Description?>
+            </p>
+			<?php }?> 
 
-            <figure
-              class="hero-banner img-holder"
-              style="--width: 700; --height: 700"
-            >
-              <img
-							src="<?php echo base_url('public/assets/images/Logo_White-01.png');?>"
-                width="700"
-                height="700"
-                alt="hero banner"
-                class="w-100"
-              />
-            </figure>
-          </div>
-        </section>
-
-        <div class="modal-vid">
-          <div class="movie-box">
-            <div class="wide-screen">
-              <div class="vid-holder">
-                <div class="close" vidUrl="#">Close</div>
-                <img
-                  class="sixteen-nine"
-									src="https://s3.amazonaws.com/imglibs/16x9_bg.png"
-                />
-
-                <video
-                  id="myVideo"
-                  class="myVideo hide"
-                  src=""
-                  controls
-                ></video>
-								<iframe width="1389" height="790" src="https://www.youtube.com/embed/RdzmufGlTF0" 
-									title="230402 Red Velvet 4th Concert &quot; R to V - BAMBOLEO" 
-									frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
-									gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
         </div>
-      </article>
-    </main>
+
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+
+            <h2 class="h2 section-title">
+                <span class="span">Members</span>
+            </h2>
+
+
+            <!--team------------------------>
+            <section id="team">
+                <!--heading---->
+
+
+			
+                <!--team-container---------->
+                <div class="team-box-container">
+				<?php foreach($get_talents_profile as $rows){?> 
+                    <!--member-box-1--->
+                    <div class="team-box-container">
+                        <!--member-box-1--->
+                        <div class="member-box member-1">
+                            <!--img---->
+                            <div class="member-img">
+                                <!--front-img-->
+                                <img src="<?php echo base_url('public/assets/images/');?><?php echo $rows->Image?>">
+                                <!--hover-img-->
+                                <img src="assets/images/yume/WEB RHED CU.jpg" class="hover-img">
+                            </div>
+                            <!--text----->
+                            <div class="member-name">
+                                <h3><?php echo $rows->Name ?></h3>
+                   
+
+                                <div class="member-social-links">
+
+                                    <a href="https://www.facebook.com/rhed.yumeshou"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.instagram.com/rhed.yumeshou"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://www.twitter.com/rhed_yumeshou"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.tiktok.com/@rhed.yumeshou"><i class="fa-brands fa-tiktok"></i></a>
+                                </div>
+
+                                <div class="parent-container">
+                                    <div class="view-work-btn">
+                                        <a href="<?php echo('talents_profile');?>?Id=<?php echo $rows->Id?>" class="view-work-btn">View Profile</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+					<?php }?> 
+
+                </div>
+            </section>
+
+
+        </div>
+    </section>
