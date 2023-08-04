@@ -35,7 +35,7 @@
                 </div>
 
                 <a href="mailto:info@exemple.com" class="item-text"
-                  >Email: exodiaproductions.ph@gmail.com</a
+                  >Email: exodiapro.com@gmail.com</a
                 >
               </li>
             </ul>

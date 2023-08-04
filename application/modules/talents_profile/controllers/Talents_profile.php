@@ -22,7 +22,21 @@ class Talents_profile extends CI_Controller {
 		
 		$data['get_talents']=$this->Talents_profile_model->get_talents();
 		$data['get_talents_profile']=$this->Talents_profile_model->get_talents_profile($Id);
-	    
+		$data['group_social']=$this->Talents_profile_model->group_social($Id);
+		$data['member_social']=$this->Talents_profile_model->member_social($Id);
+
+        $data['logos'] = array();
+		
+		foreach($data['member_social'] as $rows){
+
+			$row[] = $this->Talents_profile_model->member_social_icon($rows->MemberID);
+			$data['logos'] = $row;
+		}
+	var_dump( $data['logos'][0][0]);
+		
+		$data['member_social_icon']=$this->Talents_profile_model->member_social_icon($Id);
+
+		
 
 		$this->load->view('templates/header');
 		$this->load->view('talents_profile',$data);

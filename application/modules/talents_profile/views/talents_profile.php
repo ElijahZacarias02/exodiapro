@@ -7,26 +7,29 @@
 
 
 
-			<?php foreach($get_talents as $rows){?> 
+			<?php foreach($get_talents as $get_talents_rows){?> 
 
 				<center>
-				<img src="<?php echo base_url('public/assets/images/');?><?php echo $rows->Image?>" loading="lazy" alt="Live Match Video"
+				<img src="<?php echo base_url('public/assets/images/');?><?php echo $get_talents_rows->Image?>" loading="lazy" alt="Live Match Video"
                     class="img-cover-profile">
 					</center>
-	
-                                <!-- Social Media Icons -->
-                                <div class="member-social-links">
 
-                                    <a href="https://www.facebook.com/YumeShouOfficial"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="https://www.instagram.com/yumeshou.official"><i class="fab fa-instagram"></i></a>
-                                    <a href="https://www.twitter.com/YumeshouOFC"><i class="fab fa-twitter"></i></a>
-                                    <a href="https://www.tiktok.com/@yumeshou.official"><i class="fa-brands fa-tiktok"></i></a>
+					                        <!-- Social Media Icons -->
+											<div class="member-social-links">
+								    <?php foreach($group_social as $rows){?> 
+                                    <a href="<?php echo $rows->Link?>"><i class="<?php echo $rows->Icon?>"></i></a>
+									<?php }?> 
+							
                                 </div>
+	
+
             <p class="section-text">
-			<?php echo $rows->Description?>
+			<?php echo $get_talents_rows->Description?>
             </p>
 			<?php }?> 
 
+
+			        
         </div>
 
     </section>
@@ -65,16 +68,18 @@
                    
 
                                 <div class="member-social-links">
+							
+								<?php foreach($logos as $member_social_rows){?> 
+									<?php echo $member_social_rows['Icon']?>
+									
 
-                                    <a href="https://www.facebook.com/rhed.yumeshou"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="https://www.instagram.com/rhed.yumeshou"><i class="fab fa-instagram"></i></a>
-                                    <a href="https://www.twitter.com/rhed_yumeshou"><i class="fab fa-twitter"></i></a>
-                                    <a href="https://www.tiktok.com/@rhed.yumeshou"><i class="fa-brands fa-tiktok"></i></a>
+                                    <a href="<?php echo $member_social_rows['Link']?>"><i class="<?php echo $member_social_rows['Icon']?>"></i></a>
+									<?php }?> 
                                 </div>
 
                                 <div class="parent-container">
                                     <div class="view-work-btn">
-                                        <a href="<?php echo('talents_profile');?>?Id=<?php echo $rows->Id?>" class="view-work-btn">View Profile</a>
+                                        <a href="<?php echo('member_profile');?>?Id=<?php echo $rows->Id?>" class="view-work-btn">View Profile</a>
                                     </div>
                                 </div>
 
@@ -93,3 +98,7 @@
 
         </div>
     </section>
+
+
+
+	<div

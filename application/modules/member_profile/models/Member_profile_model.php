@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-class Talents_model extends CI_Model{
+class Member_profile_model extends CI_Model{
   
     function __construct(){
     parent::__construct();
@@ -9,17 +9,10 @@ class Talents_model extends CI_Model{
   }
   
   
-
-	function get_talents(){
-
-		$query =   $this->db->query("SELECT * FROM `talents` where Status='Active'");
-		
-		return $query->result();
-		
-}
-
-
   
+  
+  
+
   
   
 }

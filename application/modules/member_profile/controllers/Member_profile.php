@@ -1,11 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Talents extends CI_Controller {
+class Member_profile extends CI_Controller {
     function __construct(){
         
         parent::__construct();
-        $this->load->model('Talents_model');
+        $this->load->model('Member_profile_model');
+        // 	  $this->load->library('Ciqrcode');
         
         date_default_timezone_set('Asia/Manila');
         
@@ -15,15 +16,13 @@ class Talents extends CI_Controller {
 	public function index()
 	{
 	
-    
-		$data['get_talents']=$this->Talents_model->get_talents();
 
-
+	    
 		$this->load->view('templates/header');
-		$this->load->view('talents', $data);
+		$this->load->view('member_profile');
 
 		$this->load->view('templates/footer');
-		$this->load->view('talents_footer');
+		$this->load->view('member_profile_footer');
 	}
 
 
