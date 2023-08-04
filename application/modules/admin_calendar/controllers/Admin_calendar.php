@@ -25,15 +25,79 @@ class Admin_calendar extends CI_Controller
         $this->load->view('templates/footer');
 
     }
+    public function new_calendar()
+    {
+        $this->load->view('templates/header');
+        $data['event'] = $this->repository->queryEvent();
+        $data['talents'] = $this->repository->getTalents();
+        $this->load->view('new_calendar', $data);
+        $this->load->view('templates/footer');
+
+    }
     public function calendar()
     {
 
         $this->load->view('templates/header');
         $data['event'] = $this->repository->queryEvent();
+        $data['talents'] = $this->repository->getTalents();
         $this->load->view('calendar', $data);
         $this->load->view('templates/footer');
 
     }
+
+    function insert()
+    {
+
+        $this->output->enable_profiler(false);
+        $this->form_validation->set_rules('name', 'Name', 'required|max_length[55]');
+        $this->form_validation->set_rules('description', 'Description', 'trim|required|max_length[255]');
+        $this->form_validation->set_rules('date', 'Date', 'required');
+        $this->form_validation->set_rules('start_event', 'Time start', 'required');
+        $this->form_validation->set_rules('end_event', 'Time end', 'required');
+
+        $success = $this->form_validation->run($this);
+        if ($success) {
+            $data = array(
+                'name' => $this->input->post('name'),
+                'description' => $this->input->post('description'),
+                'start_event' => $this->input->post('date') . ' ' . $this->input->post('start_event'),
+                'end_event' => $this->input->post('date') . ' ' . $this->input->post('end_event'),
+            );
+            $this->repository->insert_event($data);
+
+            $data['response'] = "true";
+            $data['errors'] = "Successfully insert";
+
+        } else {
+            $data['response'] = "false";
+            $data['errors'] = validation_errors();
+
+
+        }
+        echo json_encode($data);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function view_event($id)
     {
         $data = $this->repository->view_ticket($id);
@@ -55,19 +119,7 @@ class Admin_calendar extends CI_Controller
         echo json_encode($data);
     }
 
-    function insert()
-    {
-        $data = array(
-            'name' => $this->input->post('name'),
-            'description' => $this->input->post('description'),
-            'start_event' => $this->input->post('start_event'),
-            'end_event' => $this->input->post('end_event'),
-        );
-        $response = $this->repository->insert_event($data);
 
-        echo json_encode($response);
-
-    }
 
     function update()
     {
