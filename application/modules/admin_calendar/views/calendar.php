@@ -16,7 +16,7 @@
           <a href="#popup">Add</a>
           <section class="articles">
 
-            <ul class="event-list" s>
+            <ul class="event-list">
               <li>
                 <?php foreach ($event as $row) { ?>
                   <div class="listul" style="margin-bottom: 5px; margin-top: 5px;">

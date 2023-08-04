@@ -1,11 +1,11 @@
 <div style="margin-top:150px;">
     <!-- start of search -->
-    <div class="container mt-4 search_sticky">
+    <div class="container mt-4 search_sticky" style="margin-bottom: 20px;">
         <div class="row">
             <div class="col-md-4 mx-auto">
                 <div class="input-group">
-                    <input class="form-control border-end-0 border rounded-pill" type="search" onkeyup="search_game()"
-                        placeholder="Search" id="gameSearch" style="border-color: white;" />
+                    <input class="form-control border-end-0 border rounded-pill" type="search" onkeyup="search()"
+                        id="search" placeholder="Search" style="border-color: white;" />
                     <span class="input-group-append search-span">
                         <button class="btn btn-outline-secondary border-bottom-0 border rounded-pill smaller-btn ms-n5"
                             type="button">
@@ -16,46 +16,239 @@
             </div>
         </div>
     </div>
-    <section class="articles">
-        <?php foreach ($event as $row) { ?>
+    <ul class="event-list">
+        <section class="articles">
+
             <article class="grid-item">
                 <div class="article-wrapper">
-                    <figure>
-                        <img src="https://picsum.photos/id/1011/800/450" alt="" />
-                    </figure>
                     <div class="article-body">
-                        <h2>This is some title</h2>
-                        <p>
-                            Curabitur convallis ac quam vitae laoreet.
-                        </p>
-                        <div class="grid-container">
-                            <div class="grid-content">
-                                <a href="#" class="read-more">
-                                    Read more
-
-                                    <span class="sr-only">about this is some title</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </a>
-                            </div>
-                            <div>
-                                <u>
-                                    edit
-
-                                </u>
-                            </div>
-                        </div>
+                        <a href="#popup">+</a>
                     </div>
                 </div>
             </article>
-        <?php } ?>
 
-    </section>
+            <?php foreach ($event as $row) { ?>
+                <article class="grid-item">
+                    <div class="listul article-wrapper">
+                        <figure>
+                            <img src="https://picsum.photos/id/1011/800/450" alt="" />
+                        </figure>
+                        <div class="article-body">
+                            <h2>
+                                <span class="artist">
+                                    <?php echo $row['name']; ?>
+                                </span>
+                            </h2>
+                            <h5 style="margin-bottom:20px;">
+                                <?php echo date('F j, Y', strtotime($row['start_event'])); ?>
+                            </h5>
+                            <p>
+                                <?php echo $row['description']; ?>
+                            </p>
+                            <div class="grid-container" style="grid-template-columns: auto auto ;">
+                                <div class="grid-content">
+                                    <a href="#" class="read-more">
+                                        Read more
+                                    </a>
+                                </div>
+                                <div class="grid-content">
+
+                                    <button class="button-edit" type="button" onclick="edit()">edit</button>
+
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            <?php } ?>
+
+
+        </section>
+    </ul>
 </div>
+
+
+<div class=" popup" id="popup">
+    <div class="popup__content">
+        <h2 class="heading-secondary">Adding Events</h2>
+        <div role="alert" class="alert" id="errorMessage" style="display: none; color:red;"></div>
+        <div class="bg-white grid-item">
+            <div class="card-body m-5">
+                <p><span id="success_notif" class="" style="color:green"></span></p>
+
+                <form id="add_form">
+
+                    <div class="mb-2">
+                        <label for="exampleInputEmail1" class="form-label"><span class="">Name of Talent</span></label>
+                        <select name="name" id="anme">
+                            <option value="">Select</option>
+                            <?php foreach ($talents as $row) { ?>
+
+                                <option value="<?php echo $row['Name'] ?>"><?php echo $row['Name'] ?></option>
+                            <?php } ?>
+
+                        </select>
+                    </div>
+                    <div class=" mb-2">
+                        <label for="exampleInputEmail1" class="form-label"><span class="">Description</span></label>
+                        <div class="form-floating">
+                            <input type="text" class="form-control  " id="description" name="description"
+                                placeholder="Description">
+                        </div>
+                    </div>
+                    <br>
+                    <div class=" mb-2">
+                        <label for="dateTimeInput">Select a date and time:</label>
+                        <label for="dateTimeInput">date:</label>
+                        <input type="date" id="date" name="date">
+                        <label for="dateTimeInput">Time:</label>
+                        <label for="dateTimeInput">From:</label>
+                        <input type="time" id="start_event" name="start_event">
+                        <label for="dateTimeInput">To:</label>
+                        <input type="time" id="end_event" name="end_event">
+                        <br>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <center>
+                            <button type="button" class=" btn-block text-bold " id="add">Add</button>
+                        </center>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+        <a href="#" class="button">Close Popup</a>
+    </div>
+</div>
+
+<div class="modal" id="edit_modal" hidden>
+    <div class="popup__content">
+        <h2 class="heading-secondary">Adding Events</h2>
+        <div role="alert" class="alert" id="errorMessage" style="display: none; color:red;">
+        </div>
+        <div class="bg-white grid-item">
+            <div class="card-body m-5">
+                <p><span id="success_notif" class="" style="color:green"></span></p>
+
+                <form id="add_form">
+
+                    <div class="mb-2">
+                        <label for="exampleInputEmail1" class="form-label"><span class="">Name of Talent</span></label>
+                        <select name="name" id="anme">
+                            <option value="">Select</option>
+                            <?php foreach ($talents as $row) { ?>
+
+                                <option value="<?php echo $row['Name'] ?>"><?php echo $row['Name'] ?></option>
+                            <?php } ?>
+
+                        </select>
+                    </div>
+                    <div class=" mb-2">
+                        <label for="exampleInputEmail1" class="form-label"><span class="">Description</span></label>
+                        <div class="form-floating">
+                            <input type="text" class="form-control  " id="description" name="description"
+                                placeholder="Description">
+                        </div>
+                    </div>
+                    <br>
+                    <div class=" mb-2">
+                        <label for="dateTimeInput">Select a date and time:</label>
+                        <label for="dateTimeInput">date:</label>
+                        <input type="date" id="date" name="date">
+                        <label for="dateTimeInput">Time:</label>
+                        <label for="dateTimeInput">From:</label>
+                        <input type="time" id="start_event" name="start_event">
+                        <label for="dateTimeInput">To:</label>
+                        <input type="time" id="end_event" name="end_event">
+                        <br>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <center>
+                            <button type="button" class=" btn-block text-bold " id="add">Add</button>
+                        </center>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+        <a href="#" class="button">Close Popup</a>
+    </div>
+</div>
+<script>
+    //edit
+    function edit() {
+        $("#edit_modal").removeAttr("hidden");
+    }
+    //close edit
+
+    //add
+    $(document).on('click', '#add', function (e) {
+
+        $.ajax({
+            type: 'post',
+            url: '<?= site_url('admin_calendar/insert') ?>',
+            data: $('#add_form').serialize(),
+            dataType: 'json',
+            success: function (data) {
+
+                if (data.response == 'false') {
+                    $("#errorMessage").css('display', 'block');
+                    $("#errorMessage").html(data.errors);
+                } else {
+                    $('#popup').hide();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: data.errors,
+                        confirmButtonText: 'OK',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                    }).then((result) => {
+                        setTimeout("window.location.href='<?= site_url('admin_calendar/new_calendar') ?>'", 300);
+                    })
+                }
+
+            }
+        })
+    });
+    //close add
+    //search
+    function search() {
+
+        var input,
+            filter,
+            ul,
+            li,
+            a,
+            i,
+            txtValue;
+        input = document.getElementById("search");
+        filter = input.value.toUpperCase();
+        li = document.getElementsByClassName("listul");
+
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByClassName("artist")[0];
+            txtValue = a.textContent || a.innerText;
+
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            }
+
+            else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+
+//end search
+
+</script>
+
 <style>
     article {
         --img-scale: 1.001;
@@ -204,4 +397,57 @@ Generic layout (demo looks)
         white-space: nowrap;
         width: 1px;
     }
+
+
+
+
+    /* add */
+    .button {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 50px;
+    }
+
+    .popup {
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+    }
+
+    .popup:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .popup__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 75%;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .popup__text {
+        font-size: 1.4rem;
+        margin-bottom: 4rem;
+    }
+
+    /* close add */
 </style>
