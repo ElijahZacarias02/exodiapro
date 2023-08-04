@@ -46,14 +46,14 @@
 
       <div class="vision-mission-section">
         <div class="vision card-goal">
-          <img src="<?php echo base_url('public/assets/images/Logo_White-01.png');?>" alt="Vision Image">
+          <img src="<?php echo base_url('public/assets/images/VISION.jpg');?>" alt="Vision Image">
           <h2>Our Vision</h2>
           <p>To provide phenomenal experience that cannot be replicated anywhere else.
             To showcase idols with excellent characters and values.
             To expose everyone to idols that will capture their hearts.</p>
         </div>
         <div class="mission card-goal">
-          <img src="<?php echo base_url('public/assets/images/Logo_White-01.png');?>" alt="Mission Image">
+          <img src="<?php echo base_url('public/assets/images/MISSION.png');?>" alt="Mission Image">
           <h2>Our Mission</h2>
           <p>To have a safe space for everyone to enjoy the experience of the idol culture in
             the Philippines. To showcase love and support for both the idols and fans.
@@ -77,7 +77,7 @@
 
       <div class="vision-mission-section">
         <div class="vision card-goal">
-          <img src="<?php echo base_url('public/assets/images/Logo_White-01.png');?>" alt="Vision Image">
+          <img src="<?php echo base_url('public/assets/images/TRUST.jpg');?>" alt="Vision Image">
           <h2>TRUST</h2>
           <p>EXODiA strive to build a community. forming TRUST between the idols, the management, 
             and the fans. Knowing everyone can trust each other, we believe that everyone 
@@ -85,14 +85,14 @@
             foundation of a harmonious community.</p>
         </div>
         <div class="mission card-goal">
-          <img src="<?php echo base_url('public/assets/images/Logo_White-01.png');?>" alt="Mission Image">
+          <img src="<?php echo base_url('public/assets/images/POSITIVITY.jpg');?>" alt="Mission Image">
           <h2>POSITIVITY</h2>
           <p>EXODiA aims to cultivate POSITIVE experiences for the idols, the management, and the 
             fans. We believe that having POSITIVE  experience will be beneficial to everyone as we 
             grow with everyone and expand our reach with newer experiences.</p>
         </div>
         <div class="mission card-goal">
-          <img src="<?php echo base_url('public/assets/images/Logo_White-01.png');?>" alt="Mission Image">
+          <img src="<?php echo base_url('public/assets/images/DETERMINED.png');?>" alt="Mission Image">
           <h2>DETERMINATION</h2>
           <p>EXODiA is DETERMINED to produce idols that everyone can look up to. We are 
             DETERMINED to uphold fairness everytime. We are DETERMINED to be the best 

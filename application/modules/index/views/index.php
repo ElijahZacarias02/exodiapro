@@ -17,7 +17,7 @@
                 class="tube-link sixteen-nine-btn"
                 vidUrl=""
               >
-                <button class="btn skewBg">Watch Video</button>
+                <button class="btn-watch skewBg">Watch Video</button>
               </div>
             </div>
 

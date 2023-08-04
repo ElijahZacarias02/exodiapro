@@ -379,7 +379,7 @@
     color: var(--marigold);
   }
 
-  .btn {
+  .btn-watch {
     margin-inline: auto;
     color: var(--eerie-black-1);
     font-size: var(--fs-8);
@@ -403,7 +403,7 @@
     z-index: -1;
   }
 
-  .btn::after {
+  .btn-watch::after {
     content: "";
     position: absolute;
     top: 0;
@@ -415,7 +415,7 @@
     transition: var(--transition);
   }
 
-  .btn:is(:hover, :focus)::after {
+  .btn-watch:is(:hover, :focus)::after {
     --translateX: -13px;
   }
 
@@ -1807,7 +1807,7 @@
       gap: 50px;
     }
 
-    .btn {
+    .btn-watch {
       margin-inline: 0;
     }
 
