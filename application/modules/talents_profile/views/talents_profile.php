@@ -54,6 +54,7 @@
 
                     $firsteach = reset($rows);
                     $firstdetails = $firsteach->Image;
+                    $name = $firsteach->Name;
                     ?>
 
                     <!--member-box-1--->
@@ -70,6 +71,7 @@
                             <!--text----->
                         <div class="member-name">
                             <h3>
+                                <?= $name ?>
                             </h3>
 
 

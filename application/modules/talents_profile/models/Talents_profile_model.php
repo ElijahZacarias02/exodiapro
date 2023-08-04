@@ -59,7 +59,7 @@ class Talents_profile_model extends CI_Model
 	function member_details($Id)
 	{
 
-		$query = $this->db->query('SELECT tbl1.Id, tbl1.MemberID,tbl1.Link, tbl1.Social,tbl1.Icon, tbl2.Id,tbl2.Image FROM `socials`as tbl1
+		$query = $this->db->query('SELECT tbl1.Id, tbl1.MemberID,tbl1.Link, tbl1.Social,tbl1.Icon, tbl2.Id,tbl2.Image,tbl2.Name FROM `socials`as tbl1
 	LEFT JOIN talents_profile as tbl2
 	ON tbl1.MemberID=tbl2.Id
 	WHERE  tbl1.MemberID= "' . $Id . '" ');

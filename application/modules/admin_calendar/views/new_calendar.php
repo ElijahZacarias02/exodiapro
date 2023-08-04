@@ -1,40 +1,72 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
-<section class="articles" style="margin-top:150px;" class="grid-container">
-    <div class="searchBox">
-
-        <input class="searchInput" type="text" name="" placeholder="Search">
-        <button class="searchButton" href="#">
-            <i class="material-icons">
-                search
-            </i>
-        </button>
-    </div>
-    <?php foreach ($event as $row) { ?>
-        <article class="grid-item">
-            <div class="article-wrapper">
-                <figure>
-                    <img src="https://picsum.photos/id/1011/800/450" alt="" />
-                </figure>
-                <div class="article-body">
-                    <h2>This is some title</h2>
-                    <p>
-                        Curabitur convallis ac quam vitae laoreet.
-                    </p>
-                    <a href="#" class="read-more">
-                        Read more <span class="sr-only">about this is some title</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </div>
+<section class="articles">
+    <article>
+        <div class="article-wrapper">
+            <figure>
+                <img src="https://picsum.photos/id/1011/800/450" alt="" />
+            </figure>
+            <div class="article-body">
+                <h2>This is some title</h2>
+                <p>
+                    Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue
+                    bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
+                </p>
+                <a href="#" class="read-more">
+                    Read more <span class="sr-only">about this is some title</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
             </div>
-        </article>
-    <?php } ?>
+        </div>
+    </article>
+    <article>
 
+        <div class="article-wrapper">
+            <figure>
+                <img src="https://picsum.photos/id/1005/800/450" alt="" />
+            </figure>
+            <div class="article-body">
+                <h2>This is some title</h2>
+                <p>
+                    Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue
+                    bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
+                </p>
+                <a href="#" class="read-more">
+                    Read more <span class="sr-only">about this is some title</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </article>
+    <article>
+
+        <div class="article-wrapper">
+            <figure>
+                <img src="https://picsum.photos/id/103/800/450" alt="" />
+            </figure>
+            <div class="article-body">
+                <h2>This is some title</h2>
+                <p>
+                    Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue
+                    bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
+                </p>
+                <a href="#" class="read-more">
+                    Read more <span class="sr-only">about this is some title</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </article>
 </section>
 <style>
     article {
@@ -49,7 +81,6 @@
         transform-origin: center;
         transition: all 0.4s ease-in-out;
         overflow: hidden;
-
     }
 
     article a::after {
@@ -123,22 +154,14 @@
 Generic layout (demo looks)
 **************************/
 
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-    }
-
 
     .articles {
         display: grid;
         max-width: 1200px;
         margin-inline: auto;
         padding-inline: 24px;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 4fr));
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 24px;
-
-
     }
 
     @media screen and (max-width: 960px) {
@@ -185,64 +208,4 @@ Generic layout (demo looks)
         width: 1px;
     }
 
-    /* search bar */
-    body {
-        background-image: linear-gradient(to right, #cb2d3e, #ef473a);
-    }
-
-    .searchBox {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, 50%);
-        background: #2f3640;
-        height: 40px;
-        border-radius: 40px;
-        padding: 10px;
-
-    }
-
-    .searchBox:hover>.searchInput {
-        width: 240px;
-        padding: 0 6px;
-    }
-
-    .searchBox:hover>.searchButton {
-        background: white;
-        color: #2f3640;
-    }
-
-    .searchButton {
-        color: white;
-        float: right;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: #2f3640;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: 0.4s;
-    }
-
-    .searchInput {
-        border: none;
-        background: none;
-        outline: none;
-        float: left;
-        padding: 0;
-        color: white;
-        font-size: 16px;
-        transition: 0.4s;
-        line-height: 40px;
-        width: 0px;
-
-    }
-
-    @media screen and (max-width: 620px) {
-        .searchBox:hover>.searchInput {
-            width: 150px;
-            padding: 0 6px;
-        }
-    }
-</style>
+    </style
