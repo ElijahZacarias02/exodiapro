@@ -1,73 +1,61 @@
-<section class="articles">
-    <article>
-        <div class="article-wrapper">
-            <figure>
-                <img src="https://picsum.photos/id/1011/800/450" alt="" />
-            </figure>
-            <div class="article-body">
-                <h2>This is some title</h2>
-                <p>
-                    Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue
-                    bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
-                </p>
-                <a href="#" class="read-more">
-                    Read more <span class="sr-only">about this is some title</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </a>
+<div style="margin-top:150px;">
+    <!-- start of search -->
+    <div class="container mt-4 search_sticky">
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <div class="input-group">
+                    <input class="form-control border-end-0 border rounded-pill" type="search" onkeyup="search_game()"
+                        placeholder="Search" id="gameSearch" style="border-color: white;" />
+                    <span class="input-group-append search-span">
+                        <button class="btn btn-outline-secondary border-bottom-0 border rounded-pill smaller-btn ms-n5"
+                            type="button">
+                            <!-- <i class="fa fa-search"></i> -->
+                        </button>
+                    </span>
+                </div>
             </div>
         </div>
-    </article>
-    <article>
+    </div>
+    <section class="articles">
+        <?php foreach ($event as $row) { ?>
+            <article class="grid-item">
+                <div class="article-wrapper">
+                    <figure>
+                        <img src="https://picsum.photos/id/1011/800/450" alt="" />
+                    </figure>
+                    <div class="article-body">
+                        <h2>This is some title</h2>
+                        <p>
+                            Curabitur convallis ac quam vitae laoreet.
+                        </p>
+                        <div class="grid-container">
+                            <div class="grid-content">
+                                <a href="#" class="read-more">
+                                    Read more
 
-        <div class="article-wrapper">
-            <figure>
-                <img src="https://picsum.photos/id/1005/800/450" alt="" />
-            </figure>
-            <div class="article-body">
-                <h2>This is some title</h2>
-                <p>
-                    Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue
-                    bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
-                </p>
-                <a href="#" class="read-more">
-                    Read more <span class="sr-only">about this is some title</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </article>
-    <article>
+                                    <span class="sr-only">about this is some title</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20"
+                                        fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div>
+                                <u>
+                                    edit
 
-        <div class="article-wrapper">
-            <figure>
-                <img src="https://picsum.photos/id/103/800/450" alt="" />
-            </figure>
-            <div class="article-body">
-                <h2>This is some title</h2>
-                <p>
-                    Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue
-                    bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
-                </p>
-                <a href="#" class="read-more">
-                    Read more <span class="sr-only">about this is some title</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </article>
-</section>
+                                </u>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        <?php } ?>
+
+    </section>
+</div>
 <style>
     article {
         --img-scale: 1.001;
@@ -81,6 +69,7 @@
         transform-origin: center;
         transition: all 0.4s ease-in-out;
         overflow: hidden;
+
     }
 
     article a::after {
@@ -154,14 +143,22 @@
 Generic layout (demo looks)
 **************************/
 
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
 
     .articles {
         display: grid;
         max-width: 1200px;
         margin-inline: auto;
         padding-inline: 24px;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(250px, 4fr));
         gap: 24px;
+
+
     }
 
     @media screen and (max-width: 960px) {
@@ -207,5 +204,4 @@ Generic layout (demo looks)
         white-space: nowrap;
         width: 1px;
     }
-
-    </style
+</style>
