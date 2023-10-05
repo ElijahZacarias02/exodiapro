@@ -1,28 +1,55 @@
 <div style="margin-top:150px;">
     <!-- start of search -->
-    <div class="container mt-4 search_sticky" style="margin-bottom: 20px;">
-        <div class="row">
-            <div class="col-md-4 mx-auto">
-                <div class="input-group">
-                    <input class="form-control border-end-0 border rounded-pill" type="search" onkeyup="search()"
-                        id="search" placeholder="Search" style="border-color: white;" />
-                    <span class="input-group-append search-span">
-                        <button class="btn btn-outline-secondary border-bottom-0 border rounded-pill smaller-btn ms-n5"
-                            type="button">
-                            <!-- <i class="fa fa-search"></i> -->
-                        </button>
-                    </span>
-                </div>
-            </div>
+    <div class="my-form container-events">
+        <h2 class="h2 section-title">
+            <span class="span">Events</span>
+        </h2>
+
+        <div class="grid search-div">
+            <i class="fa fa-search search-icon"></i>
+            <input class="search-input" type="search" placeholder="Search" id="search" onkeyup="search()" />
         </div>
+
+        <li>
+            <div class="grid-tab">
+                <ul class="grid-ul">
+                    <li class="grid-li nav-item active">
+                        <a class="nav-link active" data-bs-toggle="pill" href="#tab1">
+                            <button class="btn-grid" type="submit">
+                                <span class="front">Upcoming</span>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" href="#tab1">
+                            <button class="btn-grid" type="submit">
+                                <span class="front">Finished</span>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" href="#tab1">
+                            <button class="btn-grid" type="submit">
+                                <span class="front">Cancelled</span>
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </li>
+
     </div>
+
     <ul class="event-list">
         <section class="articles">
 
-            <article class="grid-item">
+            <article class="grid-item addevent">
                 <div class="article-wrapper">
                     <div class="article-body">
-                        <a href="#popup">+</a>
+                        <a style="text-decoration: none;" href="#popup"><i class="fa fa-plus-circle"
+                                aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
             </article>
@@ -69,7 +96,7 @@
 </div>
 
 
-<div class=" popup" id="popup">
+<div class="my-form popup" id="popup">
     <div class="popup__content">
         <h2 class="heading-secondary">Adding Events</h2>
         <div role="alert" class="alert" id="errorMessage" style="display: none; color:red;"></div>
@@ -85,7 +112,9 @@
                             <option value="">Select</option>
                             <?php foreach ($talents as $row) { ?>
 
-                                <option value="<?php echo $row['Name'] ?>"><?php echo $row['Name'] ?></option>
+                                <option value="<?php echo $row['Name'] ?>">
+                                    <?php echo $row['Name'] ?>
+                                </option>
                             <?php } ?>
 
                         </select>
@@ -124,7 +153,7 @@
     </div>
 </div>
 
-<div class="modal" id="edit_modal" hidden>
+<div class="modal my-form" id="edit_modal" hidden>
     <div class="popup__content">
         <h2 class="heading-secondary">Adding Events</h2>
         <div role="alert" class="alert" id="errorMessage" style="display: none; color:red;">
@@ -141,7 +170,9 @@
                             <option value="">Select</option>
                             <?php foreach ($talents as $row) { ?>
 
-                                <option value="<?php echo $row['Name'] ?>"><?php echo $row['Name'] ?></option>
+                                <option value="<?php echo $row['Name'] ?>">
+                                    <?php echo $row['Name'] ?>
+                                </option>
                             <?php } ?>
 
                         </select>
@@ -179,6 +210,7 @@
         <a href="#" class="button">Close Popup</a>
     </div>
 </div>
+
 <script>
     //edit
     function edit() {
@@ -245,7 +277,7 @@
         }
     }
 
-//end search
+    //end search
 
 </script>
 
@@ -305,7 +337,7 @@
         display: inline-flex;
         align-items: center;
         text-decoration: none;
-        color: #28666e;
+        /* color: #28666e; */
     }
 
     article a:focus {
@@ -320,6 +352,7 @@
         transform: translateX(var(--link-icon-translate));
         opacity: var(--link-icon-opacity);
         transition: all 0.3s;
+
     }
 
     /* using the has() relational pseudo selector to update our custom properties */
@@ -450,4 +483,50 @@ Generic layout (demo looks)
     }
 
     /* close add */
+    .grid-ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    .grid-ul li {
+        list-style: none;
+    }
+
+    .active {
+        background-color: var(--marigold) !important;
+        color: var(--xiketic) !important;
+        border-color: var(--marigold) !important;
+    }
+
+    /* search */
+    .search-div {
+        justify-content: center;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .search-icon {
+        padding: 20px;
+        color: white;
+    }
+
+
+    .fa-plus-circle {
+        font-size: 150px;
+        position: absolute;
+        top: 30%;
+        right: 1px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .addevent:hover {
+        background-color: var(--marigold);
+        color: var(--xiketic);
+        border-color: var(--marigold);
+    }
+
+    .active {
+        background-color: var(--marigold) !important;
+    }
 </style>
