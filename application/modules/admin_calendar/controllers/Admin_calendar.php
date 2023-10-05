@@ -25,6 +25,13 @@ class Admin_calendar extends CI_Controller
         $this->load->view('templates/footer');
 
     }
+    public function otcho()
+    {
+
+        $this->load->view('otcho');
+
+
+    }
     public function new_calendar()
     {
         $this->load->view('templates/header');
