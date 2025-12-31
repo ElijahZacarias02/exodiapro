@@ -1,3 +1,6 @@
 {
-	"cSpell.ignoreWords": ["Talents_model"]
+	"cSpell.ignoreWords": [
+		"Talents_model"
+	],
+	"editor.fontLigatures": false
 }

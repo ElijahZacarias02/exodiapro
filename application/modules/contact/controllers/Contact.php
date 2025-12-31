@@ -25,5 +25,13 @@ class Contact extends CI_Controller {
 		$this->load->view('contact_footer');
 	}
 
+// save contact_form
+    public function save_contact()
+    {
+        
+        $this->Contact_model->save_contact();
+        
+        
+    }
 
 }

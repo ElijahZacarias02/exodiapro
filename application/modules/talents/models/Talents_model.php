@@ -12,7 +12,7 @@ class Talents_model extends CI_Model{
 
 	function get_talents(){
 
-		$query =   $this->db->query("SELECT * FROM `talents` where Status='Active'");
+		$query =   $this->db->query("SELECT * FROM `talents` where Status = 1 ");
 		
 		return $query->result();
 		

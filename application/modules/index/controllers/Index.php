@@ -6,8 +6,6 @@ class Index extends CI_Controller {
         
         parent::__construct();
         $this->load->model('Index_model');
-        // 	  $this->load->library('Ciqrcode');
-        
         date_default_timezone_set('Asia/Manila');
         
 
@@ -20,9 +18,9 @@ class Index extends CI_Controller {
 	    
 		$this->load->view('templates/header');
 		$this->load->view('index');
-
-		$this->load->view('templates/footer');
 		$this->load->view('index_footer');
+        $this->load->view('templates/footer');
+	
 	}
 
 

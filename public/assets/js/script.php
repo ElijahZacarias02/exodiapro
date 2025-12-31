@@ -1,68 +1,118 @@
+<script>
+"use strict";
 
-
-
-
-'use strict';
-
-/**
- * navbar variables
- */
-
-const navOpenBtn = document.querySelector("[data-menu-open-btn]");
-const navCloseBtn = document.querySelector("[data-menu-close-btn]");
 const navbar = document.querySelector("[data-navbar]");
-const overlay = document.querySelector("[data-overlay]");
+const navbarLinks = document.querySelectorAll("[data-nav-link]");
+const navbarToggler = document.querySelector("[data-nav-toggler]");
 
-const navElemArr = [navOpenBtn, navCloseBtn, overlay];
+navbarToggler.addEventListener("click", function () {
+  navbar.classList.toggle("active");
+  this.classList.toggle("active");
+});
 
-for (let i = 0; i < navElemArr.length; i++) {
-
-  navElemArr[i].addEventListener("click", function () {
-
-    navbar.classList.toggle("active");
-    overlay.classList.toggle("active");
-    document.body.classList.toggle("active");
-
+for (let i = 0; i < navbarLinks.length; i++) {
+  navbarLinks[i].addEventListener("click", function () {
+    navbar.classList.remove("active");
+    navbarToggler.classList.remove("active");
   });
-
-
 }
 
+/**
+ * search toggle
+ */
 
+const searchTogglers = document.querySelectorAll("[data-search-toggler]");
+const searchBox = document.querySelector("[data-search-box]");
+
+for (let i = 0; i < searchTogglers.length; i++) {
+  searchTogglers[i].addEventListener("click", function () {
+    searchBox.classList.toggle("active");
+  });
+}
 
 /**
- * header sticky
+ * header
  */
 
 const header = document.querySelector("[data-header]");
+const backTopBtn = document.querySelector("[data-back-top-btn]");
 
 window.addEventListener("scroll", function () {
-
-  window.scrollY >= 10 ? header.classList.add("active") : header.classList.remove("active");
-
+  if (window.scrollY >= 200) {
+    header.classList.add("active");
+    backTopBtn.classList.add("active");
+  } else {
+    header.classList.remove("active");
+    backTopBtn.classList.remove("active");
+  }
 });
 
+$(document).ready(function () {
+  $(".loader").fadeOut("slow");
 
 
-/**
- * go top
- */
 
-const goTopBtn = document.querySelector("[data-go-top]");
+  $(".tube-link").click(function () {
+    $(".youTube").removeClass("hide");
+    $(".youTube").addClass("show");
+    $(".myVideo").addClass("hide");
+    $(".myVideo").removeClass("show");
+    $(".youTube").attr("src", $(this).attr("vidUrl"));
+  });
 
-window.addEventListener("scroll", function () {
+  $(".sixteen-nine-btn").click(function () {
+    $(".modal-vid").fadeIn(500);
+    $(".vid-holder img").removeClass("show");
+    $(".sixteen-nine").addClass("show");
+  });
 
-  window.scrollY >= 500 ? goTopBtn.classList.add("active") : goTopBtn.classList.remove("active");
-
+  $(".close-preview").click(function () {
+    $(".modal-vid").fadeOut(500);
+    /*document.getElementById('myVideo').pause();*/
+    $(".youTube, .myVideo").attr("src", "");
+  });
 });
 
+window.document.onkeydown = function (e) {
+  if (!e) e = event;
+  if (e.keyCode == 27) {
+    $(".youTube, .myVideo").attr("src", "");
+    $(".modal-vid").fadeOut(500);
+    document.getElementById("myVideo").pause();
+  }
+};
 
 
-const clearInput = () => {
-  const input = document.getElementsByTagName("input")[0];
-  input.value = "";
-}
+const images = Array.from(document.querySelectorAll('.gallery-grid img'));
+    const modal = document.querySelector('.modal');
 
-const clearBtn = document.getElementById("clear-btn");
-clearBtn.addEventListener("click", clearInput);
+    const closeBtn = document.querySelector('.close-btn');
 
+
+  images.forEach(image => {
+      image.addEventListener('click', () => {
+        modal.classList.add('active');
+        const img = document.createElement('img');
+        img.src = image.src;
+        if (modal.children[1]) {
+          modal.removeChild(modal.children[1]);
+        }
+        modal.appendChild(img);
+
+        // Add a class to the modal to indicate that an image is shown
+        modal.classList.add('image-active');
+      });
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal && modal.classList.contains('image-active')) {
+        modal.classList.remove('active');
+        modal.classList.remove('image-active');
+      }
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      modal.classList.remove('image-active');
+    });
+  </script>
