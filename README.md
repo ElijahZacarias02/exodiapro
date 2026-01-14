@@ -4,7 +4,7 @@
 
 EXODiA PRO is a creative platform for helping aspiring idols discover their strengths and shine with confidence. The project uses close collaboration with user interface and user experience designers to deliver an immersive and visually compelling experience. Together we craft intuitive user flows, engaging layouts, and interactive elements that reflect the brand's energy and vision. And as with any truly great experience, utilizing these fundamentals enables the team to use a seamless digital journey that nurtures talent, guides users every step of the way and inspires them to push boundaries and unlock their full potential generating the type of success that drives us all.
 
-Accomplishment: Successfully launched an infographic website that bridges aspiring idols, internal teams, sponsors, and event organizers through engaging visual content.
+Successfully launched an infographic website that bridges aspiring idols, internal teams, sponsors, and event organizers through engaging visual content.
 
 ## Responsibilities
 
