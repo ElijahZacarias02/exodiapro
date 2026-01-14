@@ -1,71 +1,167 @@
-###################
-What is CodeIgniter
-###################
+# EXODiA PRO
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+**Role:** Full-Stack Web Developer
 
-*******************
-Release Information
-*******************
+EXODiA PRO is a creative platform for helping aspiring idols discover their strengths and shine with confidence. The project uses close collaboration with user interface and user experience designers to deliver an immersive and visually compelling experience. Together we craft intuitive user flows, engaging layouts, and interactive elements that reflect the brand's energy and vision. And as with any truly great experience, utilizing these fundamentals enables the team to use a seamless digital journey that nurtures talent, guides users every step of the way and inspires them to push boundaries and unlock their full potential generating the type of success that drives us all.
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+Accomplishment: Successfully launched an infographic website that bridges aspiring idols, internal teams, sponsors, and event organizers through engaging visual content.
 
-**************************
-Changelog and New Features
-**************************
+## Responsibilities
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+- Developed responsive, user-friendly interfaces based on approved UI/UX designs
+- Collaborated closely with UI/UX designers to ensure accurate implementation and visual consistency
+- Ensured cross-browser and cross-device compatibility for a seamless user experience
+- Built reusable, scalable components to improve maintainability and development efficiency
+- Maintained consistent styling and layout across the entire application
 
-*******************
-Server Requirements
-*******************
+## Technologies Used
 
-PHP version 5.6 or newer is recommended.
+- HTML5
+- CSS3
+- JavaScript
+- jQuery
+- CodeIgniter 3
+- MySQL
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+## Prerequisites
 
-************
-Installation
-************
+Before running this project, ensure you have the following installed:
 
-Please see the `installation section <https://codeigniter.com/userguide3/installation/index.html>`_
-of the CodeIgniter User Guide.
+- **XAMPP** (or any PHP development environment with Apache and MySQL)
+  - PHP 7.0 or higher
+  - Apache Web Server
+  - MySQL 5.6 or higher
+- **Web Browser** (Chrome, Firefox, Safari, or Edge)
 
-*******
-License
-*******
+## Installation & Setup
 
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
+### Step 1: Clone or Download the Project
 
-*********
-Resources
-*********
+If you haven't already, place the project in your XAMPP `htdocs` directory:
+```
+C:\xampp\htdocs\exodiapro\
+```
 
--  `User Guide <https://codeigniter.com/docs>`_
--  `Contributing Guide <https://github.com/bcit-ci/CodeIgniter/blob/develop/contributing.md>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
+### Step 2: Database Setup
 
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
+1. Start **XAMPP Control Panel**
+2. Start **Apache** and **MySQL** services
+3. Open **phpMyAdmin** by navigating to `http://localhost/phpmyadmin`
+4. Create a new database named `exodia`:
+   - Click "New" in the left sidebar
+   - Enter database name: `exodia`
+   - Select collation: `utf8_general_ci`
+   - Click "Create"
+5. Import your database schema (if you have a SQL file):
+   - Select the `exodia` database
+   - Click on the "Import" tab
+   - Choose your SQL file and click "Go"
 
-***************
-Acknowledgement
-***************
+### Step 3: Configure Database Connection
 
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+1. Open `application/config/database.php`
+2. Verify the database settings match your MySQL configuration:
+   ```php
+   $db['default'] = array(
+       'hostname' => 'localhost',
+       'username' => 'root',
+       'password' => '',  // Set your MySQL password if you have one
+       'database' => 'exodia',
+       'dbdriver' => 'mysqli',
+       // ... other settings
+   );
+   ```
+
+### Step 4: Configure Base URL
+
+1. Open `application/config/config.php`
+2. Update the base URL to match your local setup:
+   ```php
+   $config['base_url'] = 'http://localhost/exodiapro/';
+   ```
+   Note: Adjust the path based on your folder name in `htdocs`
+
+### Step 5: Set Permissions (if needed)
+
+Ensure the following directories are writable:
+- `application/cache/`
+- `application/logs/`
+
+On Windows, these directories should already have the correct permissions.
+
+## Running the Project
+
+1. **Start XAMPP Services:**
+   - Open XAMPP Control Panel
+   - Start **Apache** service
+   - Start **MySQL** service
+
+2. **Access the Application:**
+   - Open your web browser
+   - Navigate to: `http://localhost/exodiapro/`
+   - The application should load successfully
+
+## Project Structure
+
+```
+exodiapro/
+├── application/          # Application code
+│   ├── config/          # Configuration files
+│   ├── controllers/     # Controllers
+│   ├── models/          # Models
+│   ├── views/           # Views
+│   └── modules/         # Modular extensions
+│       ├── about/
+│       ├── contact/
+│       ├── index/
+│       ├── schedules/
+│       ├── sponsors/
+│       ├── talent_profile/
+│       └── talents/
+├── public/              # Public assets
+│   └── assets/
+│       ├── css/
+│       ├── js/
+│       └── images/
+├── system/              # CodeIgniter system files
+├── index.php            # Entry point
+└── README.md            # This file
+```
+
+## Troubleshooting
+
+### Issue: Page not found (404 Error)
+- **Solution:** Check that your `base_url` in `application/config/config.php` matches your local path
+- Ensure Apache is running in XAMPP
+
+### Issue: Database connection error
+- **Solution:** 
+  - Verify MySQL is running in XAMPP
+  - Check database credentials in `application/config/database.php`
+  - Ensure the database `exodia` exists in phpMyAdmin
+
+### Issue: CSS/JS files not loading
+- **Solution:** 
+  - Check that the `public/assets/` directory exists
+  - Verify file paths in your views are correct
+  - Clear browser cache
+
+### Issue: Permission denied errors
+- **Solution:** 
+  - Ensure `application/cache/` and `application/logs/` directories are writable
+  - On Windows, right-click the folders → Properties → Security → Edit permissions
+
+## Development Notes
+
+- The project uses **CodeIgniter 3** framework with **Modular Extensions (MX)**
+- All custom modules are located in `application/modules/`
+- Static assets (CSS, JS, images) are in `public/assets/`
+- Database queries use CodeIgniter's Active Record pattern
+
+## Support
+
+For issues or questions regarding this project, please contact the development team.
+
+---
+
+**Note:** This project was developed using XAMPP on Windows. If you're using a different environment (WAMP, MAMP, or Linux), adjust the paths and configuration accordingly.
